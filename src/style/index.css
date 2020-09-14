@@ -15,3 +15,8 @@ html{
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+.grid{
+  grid-template-areas: 
+  "C C C C C C C C C";
+}
