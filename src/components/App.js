@@ -14,7 +14,7 @@ class App extends Component{
       };
       //bind
       this.handleChange = this.handleChange.bind(this);
-      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
       this.renderNotes = this.renderNotes.bind(this);
     }
     //lifecycle method of react
