@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {database} from '../firebase'
 
 class App extends Component{
   constructor(props){
@@ -10,12 +11,25 @@ class App extends Component{
       };
       //bind
       this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(e){
-      e.prevenDefault();
       this.setState({
             [e.target.name]:e.target.value
+      });
+    }
+
+    handleSubmit(e){
+      e.preventDefault();
+      const note = {
+        title: this.state.title ,
+        body: this.state.body
+      }
+      database.push(note);
+      this.setState({
+        title:'',
+        body:''
       });
     }
   render(){
@@ -23,10 +37,11 @@ class App extends Component{
       <div className="grid">
            <div className="IP">
              <div className="I1">
-               <form>
+               <form onSubmit={this.handleSubmit}>
                  <div className="I2">
                    <input 
                    onChange={this.handleChange}
+                   value={this.state.title}
                    type="text" 
                    name="title" 
                    className="form-control no-border"
@@ -36,6 +51,7 @@ class App extends Component{
                  <div className="I3">
                    <textarea 
                    onChange={this.handleChange}
+                   value={this.state.body}
                    type="text" 
                    name="body" 
                    className="form-control no-border"
