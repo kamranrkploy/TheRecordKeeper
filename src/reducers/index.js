@@ -5,3 +5,5 @@ import notesRedcers from './notesReducer';
 const rootReducer = combineReducers({
     notes : notesReducer
 });
+
+export default rootReducer
