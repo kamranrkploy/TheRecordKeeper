@@ -15,6 +15,12 @@ html{
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+h2{
+  color: burlywood;
+}
+p{
+  color:bisque;
+}
 
 .grid{
   /* grid-template-areas:  */
