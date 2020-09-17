@@ -1,12 +1,11 @@
-import React , {Component} from 'react';
+import React from 'react';
 
-export default class NotePage extends Component{
-    render() {
-        return (
+const NotePage = props =>{
+    return (
+    
             <div className="jumbotron">
-                <div>{this.props.children}</div>
+                <div>{props.children}</div>
             </div>
         );
     }
-
-}
+export default NotePage
