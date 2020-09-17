@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {database} from '../firebase';
 import _ from 'lodash';
 import {connect} from 'react-redux';
 import { getNotes , saveNotes} from '../actions/notes'
@@ -9,9 +8,7 @@ class App extends Component{
       //state
       this.state = {
         title:'',
-        body:'',
-        notes : {}
-        
+        body:''
       };
       //bind
       this.handleChange = this.handleChange.bind(this);
@@ -35,7 +32,7 @@ class App extends Component{
         title: this.state.title ,
         body: this.state.body
       };
-      this.props.saveNotes();
+      this.props.saveNotes(note);
       this.setState({
         title:'',
         body:''
@@ -43,7 +40,7 @@ class App extends Component{
     }
    //render notes from database
    renderNotes(){
-     return _.map(this.state.notes , (note , key) =>{
+     return _.map(this.props.notes , (note , key) =>{
         return(
           <div key={key}>
                <h2>{note.title}</h2>
