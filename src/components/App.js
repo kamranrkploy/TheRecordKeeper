@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import {connect} from 'react-redux';
-import { getNotes , saveNotes} from '../actions/notes'
+import { getNotes , saveNotes , deleteNote} from '../actions/notes'
 class App extends Component{
   constructor(props){
     super(props);
@@ -45,6 +45,7 @@ class App extends Component{
           <div key={key}>
                <h2>{note.title}</h2>
         <p>{note.body}</p>
+        <button className="" onClick={()=>this.props.deleteNote(key)}>Delete</button>
           </div>
         )
      });
@@ -94,4 +95,4 @@ function mapStateToProps( state , ownProps){
   }
 }
 
-export default connect(mapStateToProps , { getNotes , saveNotes} )(App);
+export default connect(mapStateToProps , { getNotes , saveNotes , deleteNote} )(App);
