@@ -22,11 +22,11 @@ const Header = () => (
                            <span className=""/>                             
                            <span className=""/>                             
                        </button>
-                       
+                       <Link className="" to="/">Record Notes</Link>
                    </div>
           </div>
   </nav>
-)
+);
 
 
 //providing store to react using Provider
@@ -36,6 +36,7 @@ const Header = () => (
 ReactDOM.render(<Provider store={store}>
     <BrowserRouter>
       <div>
+          <Header />
         <Switch>
            <Route path="/" component={App} exact={true} />
            <Route path="/Login" component={Login} exact={true} />
