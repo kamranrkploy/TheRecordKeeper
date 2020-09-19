@@ -8,6 +8,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import rootReducer from './reducers';
+import Login from './components/Login'
 import {BrowserRouter , Link , Switch , Route} from 'react-router-dom';
 //creating store
 const store = createStore(rootReducer , composeWithDevTools(applyMiddleware(thunk)));
@@ -32,7 +33,16 @@ const Header = () => (
 
 
 
-ReactDOM.render(<Provider store={store}><App /></Provider>,
+ReactDOM.render(<Provider store={store}>
+    <BrowserRouter>
+      <div>
+        <Switch>
+           <Route path="/" component={App} exact={true} />
+           <Route path="/Login" component={Login} exact={true} />
+        </Switch>
+      </div>
+   </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
  
